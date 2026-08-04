@@ -4,9 +4,9 @@ var gElCanvas
 var gCtx
 
 function renderMeme() {
+    const meme = getMeme()
+    const line = meme.lines[meme.selectedLineIdx]
     const img = new Image()
-    const text = 'When the code finally works'
-
     img.onload = function () {
         gCtx.drawImage(
             img,
@@ -16,17 +16,17 @@ function renderMeme() {
             gElCanvas.height
         )
 
-        gCtx.font = '40px Arial'
+        gCtx.font = line.size + 'px Arial'
         gCtx.textAlign = 'center'
-        gCtx.fillStyle = 'white'
+        gCtx.fillStyle = line.color
         gCtx.strokeStyle = 'black'
         gCtx.lineWidth = 2
 
         const x = gElCanvas.width / 2
         const y = 60
 
-        gCtx.strokeText(text, x, y)
-        gCtx.fillText(text, x, y)
+        gCtx.strokeText(line.txt, x, y)
+        gCtx.fillText(line.txt, x, y)
     }
 
     img.src = 'img/1.jpg'
