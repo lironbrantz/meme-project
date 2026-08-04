@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,14 +9,21 @@
 
     <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
+
+<body onload="onInit()">
 
     <main>
         <section class="meme-gallery"></section>
 
-        <section class="meme-editor"></section>
+        <section class="meme-editor">
+           <canvas class="meme-canvas" width="500" height="500"></canvas>
+        </section>
     </main>
 
+    <script src="js/services/meme.service.js"></script>
+    <script src="js/controllers/meme.controller.js"></script>
+    <script src="js/controllers/gallery.controller.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>
