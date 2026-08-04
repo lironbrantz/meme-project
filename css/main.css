@@ -1,0 +1,5 @@
+.meme-gallery,
+.meme-editor {
+    min-height: 200px;
+    border: 1px solid black;
+}
