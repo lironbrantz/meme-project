@@ -5,19 +5,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Ultimate Meme Generator</title>
+    <title>Meme Generator</title>
 
     <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body onload="onInit()">
 
-    <main>
-        <section class="meme-gallery"></section>
+    <header class="main-header">
+        <div class="logo">Meme Generator</div>
 
-        <section class="meme-editor">
-           <canvas class="meme-canvas" width="500" height="500"></canvas>
-        </section>
+        <nav class="main-nav">
+            <a href="#gallery">Gallery</a>
+            <a href="#memes">Memes</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about" class="about-section hidden"> </section>
+            <section id="gallery" class="meme-gallery">
+                <input type="text" class="meme-search-input" placeholder="Search Meme">
+
+                <div class="gallery-grid"></div>
+            </section>
+            <section id="memes" class="meme-list hidden">
+                <div class="meme-list-grid"></div>
+            </section>
+            <section id="editor" class="meme-editor hidden">
+                <div class="editor-layout">
+
+                    <div class="canvas-container">
+                        <canvas class="meme-canvas" width="500" height="500">
+                        </canvas>
+                    </div>
+
+                    <div class="editor-controls">
+
+                        <input type="text" class="line-input" placeholder="Enter text"
+                            oninput="onSetLineText(this.value)">
+
+
+                        <button class="btn btn-add-line" type="button" onclick="onAddText()">
+                            Add text line
+                        </button>
+
+                        <button class="btn btn-delete-line" type="button" onclick="onDeleteText()">
+                            Delete text line
+                        </button>
+
+                        <button class="btn btn-font-up" type="button" onclick="onFontSizeUp()">
+                            A+
+                        </button>
+
+                        <button class="btn btn-font-down" type="button" onclick="onFontSizeDown()">
+                            A-
+                        </button>
+                        <label class="color-control">
+                            Stroke Color
+                            <input type="color" class="color-input" value="#000000"
+                                oninput="onSetStrokeColor(this.value)">
+                        </label>
+                        <label class="color-control">
+                            Font Color
+                            <input type="color" class="color-input" value="#ffffff"
+                                oninput="onSetFontColor(this.value)">
+                        </label>
+
+
+
+                    </div>
+                </div>
+            </section>
+
     </main>
 
     <script src="js/services/meme.service.js"></script>
