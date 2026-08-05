@@ -29,5 +29,10 @@ function renderMeme() {
         gCtx.fillText(line.txt, x, y)
     }
 
-    img.src = 'img/1.jpg'
+    img.src = `img/${meme.selectedImgId}.jpg`
+}
+
+function onSetLineText(txt) {
+    setLineTxt(txt)
+    renderMeme()
 }
