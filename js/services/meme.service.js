@@ -28,7 +28,9 @@ var gMeme = {
         {
             txt: 'HI!',
             size: 20,
-            color: 'red'
+            color: 'red',
+            x: 250,
+            y: 60
         }
     ]
 }
