@@ -36,3 +36,10 @@ function onSetLineText(txt) {
     setLineTxt(txt)
     renderMeme()
 }
+
+function onDownloadMeme() {
+    const elLink = document.createElement('a')
+    elLink.download = 'meme.jpg'
+    elLink.href = gElCanvas.toDataURL()
+    elLink.click()
+}
