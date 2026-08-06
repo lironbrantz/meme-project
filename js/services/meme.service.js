@@ -32,6 +32,15 @@ var gMeme = {
             strokeColor: 'black',
             x: 250,
             y: 60
+        },
+        {
+            txt: 'I\'M A MEME!',
+            size: 20,
+            color: 'red',
+            strokeColor: 'black',
+            x: 250,
+            y: 400
+
         }
     ]
 }
@@ -67,3 +76,13 @@ function setStrokeColor(color) {
     const line = gMeme.lines[gMeme.selectedLineIdx]
     line.strokeColor = color
 }
+
+function selectedLineIdx() {
+    return gMeme.selectedLineIdx
+}
+
+function switchLine() {
+    gMeme.selectedLineIdx++
+    if (gMeme.selectedLineIdx === gMeme.lines.length) gMeme.selectedLineIdx = 0
+}
+

@@ -61,3 +61,14 @@ function onSetFontColor(color) {
     setLineColor(color)
     renderMeme()
 }
+
+function onSwitchLine() {
+    switchLine()
+
+    const meme = getMeme()
+    const line = meme.lines[meme.selectedLineIdx]
+    document.querySelector('.line-input').value = line.txt
+
+    renderMeme()
+}
+
