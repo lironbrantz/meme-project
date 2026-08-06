@@ -22,7 +22,7 @@ function renderMeme() {
         gCtx.font = `${line.size}px Impact`
         gCtx.textAlign = 'center'
         gCtx.fillStyle = line.color
-        gCtx.strokeStyle = 'black'
+        gCtx.strokeStyle = line.strokeColor 
         gCtx.lineWidth = 2
         gCtx.strokeText(line.txt, line.x, line.y)
         gCtx.fillText(line.txt, line.x, line.y)
@@ -44,4 +44,24 @@ function onDownloadMeme() {
     elLink.download = 'meme.jpg'
     elLink.href = gElCanvas.toDataURL()
     elLink.click()
+}
+
+function onFontSizeUp() {
+    changeFontSize(5)
+    renderMeme()
+}
+
+function onFontSizeDown() {
+    changeFontSize(-5)
+    renderMeme()
+}
+
+function onSetStrokeColor(color) {
+    setStrokeColor(color)
+    renderMeme()
+}
+
+function onSetFontColor(color) {
+   setLineColor(color)
+   renderMeme()
 }

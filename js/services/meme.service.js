@@ -29,6 +29,7 @@ var gMeme = {
             txt: 'HI!',
             size: 20,
             color: 'red',
+            strokeColor: 'black',
             x: 250,
             y: 60
         }
@@ -51,4 +52,18 @@ function setLineTxt(txt) {
 
 function setImg(imgId) {
     gMeme.selectedImgId = imgId
+}
+
+function changeFontSize(diff) {
+    const line = gMeme.lines[gMeme.selectedLineIdx]
+    line.size += diff
+}
+
+function setLineColor(color) {
+    const line = gMeme.lines[gMeme.selectedLineIdx]
+    line.color = color
+}
+function setStrokeColor(color) {
+    const line = gMeme.lines[gMeme.selectedLineIdx]
+    line.strokeColor = color
 }
