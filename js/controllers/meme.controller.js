@@ -4,33 +4,29 @@ var gElCanvas
 var gCtx
 
 function renderMeme() {
-
     const meme = getMeme()
-    const line = meme.lines[meme.selectedLineIdx]
     const currImg = gImgs.find(img => img.id === meme.selectedImgId)
+
+
     const img = new Image()
+
     img.onload = function () {
         gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
-        gCtx.drawImage(
-            img,
-            0,
-            0,
-            gElCanvas.width,
-            gElCanvas.height
-        )
+        gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
 
-        gCtx.font = `${line.size}px Impact`
-        gCtx.textAlign = 'center'
-        gCtx.fillStyle = line.color
-        gCtx.strokeStyle = line.strokeColor 
-        gCtx.lineWidth = 2
-        gCtx.strokeText(line.txt, line.x, line.y)
-        gCtx.fillText(line.txt, line.x, line.y)
+        meme.lines.forEach(line => {
+            gCtx.font = `${line.size}px Impact`
+            gCtx.textAlign = 'center'
 
+            gCtx.fillStyle = line.color
+            gCtx.strokeStyle = line.strokeColor
+            gCtx.lineWidth = 2
 
+            gCtx.strokeText(line.txt, line.x, line.y)
+            gCtx.fillText(line.txt, line.x, line.y)
+
+        })
     }
-
-
     img.src = currImg.url
 }
 
@@ -62,6 +58,6 @@ function onSetStrokeColor(color) {
 }
 
 function onSetFontColor(color) {
-   setLineColor(color)
-   renderMeme()
+    setLineColor(color)
+    renderMeme()
 }
