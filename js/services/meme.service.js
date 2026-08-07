@@ -28,7 +28,7 @@ var gMeme = {
         {
             txt: 'HI!',
             size: 20,
-            color: 'red',
+            color: '#ffffff',
             strokeColor: 'black',
             x: 250,
             y: 60
@@ -36,7 +36,7 @@ var gMeme = {
         {
             txt: 'I\'M A MEME!',
             size: 20,
-            color: 'red',
+            color: '#ffffff',
             strokeColor: 'black',
             x: 250,
             y: 400
@@ -86,3 +86,6 @@ function switchLine() {
     if (gMeme.selectedLineIdx === gMeme.lines.length) gMeme.selectedLineIdx = 0
 }
 
+function getImgById(imgId) {
+    return gImgs.find(img => img.id === imgId)
+}

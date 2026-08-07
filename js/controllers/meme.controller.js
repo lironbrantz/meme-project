@@ -5,7 +5,7 @@ var gCtx
 
 function renderMeme() {
     const meme = getMeme()
-    const currImg = gImgs.find(img => img.id === meme.selectedImgId)
+    const currImg = getImgById(meme.selectedImgId)
 
 
     const img = new Image()
